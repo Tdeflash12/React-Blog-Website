@@ -1,12 +1,14 @@
 import React from 'react'
 import Form from './Components/form/Form'
 import axios from 'axios'
+import { baseUrl } from '../../config'
 import { useNavigate } from 'react-router-dom'
 const Register = () => {
+ 
  const Navigate = useNavigate()
   const handleRegister = async (data)=>{
 try {
-  const response =await axios.post("https://react30.onrender.com/api/user/register",data)
+  const response =await axios.post(`${baseUrl}/register`,data)
 
   if(response.status === 201){
     Navigate('/login')
